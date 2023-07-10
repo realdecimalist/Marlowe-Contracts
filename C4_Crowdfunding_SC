@@ -1,0 +1,184 @@
+When
+    [Case
+        (Deposit
+            (Role "Participant 1")
+            (Role "Participant 1")
+            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+            (Constant 100)
+        )
+        (When
+            [Case
+                (Deposit
+                    (Role "Participant 2")
+                    (Role "Participant 2")
+                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                    (Constant 100)
+                )
+                (When
+                    [Case
+                        (Deposit
+                            (Role "Participant 3")
+                            (Role "Participant 3")
+                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                            (Constant 100)
+                        )
+                        (When
+                            [Case
+                                (Deposit
+                                    (Role "Participant 4")
+                                    (Role "Participant 4")
+                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                    (Constant 100)
+                                )
+                                (If
+                                    (ValueGE
+                                        (AddValue
+                                            (AddValue
+                                                (AddValue
+                                                    (AvailableMoney
+                                                        (Role "Participant 1")
+                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                    )
+                                                    (AvailableMoney
+                                                        (Role "Participant 2")
+                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                    )
+                                                )
+                                                (AvailableMoney
+                                                    (Role "Participant 3")
+                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                )
+                                            )
+                                            (AvailableMoney
+                                                (Role "Participant 4")
+                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                            )
+                                        )
+                                        (Constant 400)
+                                    )
+                                    (Pay
+                                        (Role "Participant 1")
+                                        (Party (Role "Project Owner"))
+                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                        (AvailableMoney
+                                            (Role "Participant 1")
+                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                        )
+                                        (Pay
+                                            (Role "Participant 2")
+                                            (Party (Role "Project Owner"))
+                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                            (AvailableMoney
+                                                (Role "Participant 2")
+                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                            )
+                                            (Pay
+                                                (Role "Participant 3")
+                                                (Party (Role "Project Owner"))
+                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                (AvailableMoney
+                                                    (Role "Participant 3")
+                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                )
+                                                (Pay
+                                                    (Role "Participant 4")
+                                                    (Party (Role "Project Owner"))
+                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                    (AvailableMoney
+                                                        (Role "Participant 4")
+                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                    )
+                                                    Close 
+                                                )
+                                            )
+                                        )
+                                    )
+                                    (When
+                                        [Case
+                                            (Choice
+                                                (ChoiceId
+                                                    "refund"
+                                                    (Role "Participant 1")
+                                                )
+                                                [Bound 1 1]
+                                            )
+                                            (Pay
+                                                (Role "Participant 1")
+                                                (Party (Role "Participant 1"))
+                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                (AvailableMoney
+                                                    (Role "Participant 1")
+                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                )
+                                                (When
+                                                    [Case
+                                                        (Choice
+                                                            (ChoiceId
+                                                                "refund"
+                                                                (Role "Participant 2")
+                                                            )
+                                                            [Bound 1 1]
+                                                        )
+                                                        (Pay
+                                                            (Role "Participant 2")
+                                                            (Party (Role "Participant 2"))
+                                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                            (AvailableMoney
+                                                                (Role "Participant 2")
+                                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                            )
+                                                            (When
+                                                                [Case
+                                                                    (Choice
+                                                                        (ChoiceId
+                                                                            "refund"
+                                                                            (Role "Participant 3")
+                                                                        )
+                                                                        [Bound 1 1]
+                                                                    )
+                                                                    (Pay
+                                                                        (Role "Participant 3")
+                                                                        (Party (Role "Participant 3"))
+                                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                                        (AvailableMoney
+                                                                            (Role "Participant 3")
+                                                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                                        )
+                                                                        (When
+                                                                            [Case
+                                                                                (Choice
+                                                                                    (ChoiceId
+                                                                                        "refund"
+                                                                                        (Role "Participant 4")
+                                                                                    )
+                                                                                    [Bound 1 1]
+                                                                                )
+                                                                                (Pay
+                                                                                    (Role "Participant 4")
+                                                                                    (Party (Role "Participant 4"))
+                                                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                                                    (AvailableMoney
+                                                                                        (Role "Participant 4")
+                                                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                                                    )
+                                                                                    Close 
+                                                                                )]
+                                                                            1720630500000 Close 
+                                                                        )
+                                                                    )]
+                                                                1720630440000 Close 
+                                                            )
+                                                        )]
+                                                    1720630380000 Close 
+                                                )
+                                            )]
+                                        1720630320000 Close 
+                                    )
+                                )]
+                            1720630260000 Close 
+                        )]
+                    1720630200000 Close 
+                )]
+            1720630140000 Close 
+        )]
+    1720630080000 Close 
