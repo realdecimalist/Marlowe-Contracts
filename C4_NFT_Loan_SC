@@ -21,87 +21,53 @@ When
                     (Constant 10000)
                     (Pay
                         (Role "Borrower")
-                        (Party (Role "Lender"))
+                        (Account (Role "Lender"))
                         (Token "0889a2d542897f0c7eefed47d2d809bd8d8ec78881bd4ff9464f683a" "BadgeOfHonor")
                         (Constant 1)
                         (When
                             [Case
                                 (Deposit
-                                    (Role "Borrower")
+                                    (Role "Lender")
                                     (Role "Borrower")
                                     (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
                                     (Constant 150)
                                 )
-                                (Pay
-                                    (Role "Borrower")
-                                    (Party (Role "Lender"))
-                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                    (Constant 150)
-                                    (When
-                                        [Case
-                                            (Deposit
-                                                (Role "Borrower")
-                                                (Role "Borrower")
-                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                (Constant 150)
-                                            )
-                                            (Pay
-                                                (Role "Borrower")
-                                                (Party (Role "Lender"))
-                                                (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                (Constant 150)
+                                (When
+                                    [Case
+                                        (Deposit
+                                            (Role "Lender")
+                                            (Role "Borrower")
+                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                            (Constant 150)
+                                        )
+                                        (When
+                                            [Case
+                                                (Deposit
+                                                    (Role "Lender")
+                                                    (Role "Borrower")
+                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
+                                                    (Constant 150)
+                                                )
                                                 (When
                                                     [Case
                                                         (Deposit
-                                                            (Role "Borrower")
+                                                            (Role "Lender")
                                                             (Role "Borrower")
                                                             (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                            (Constant 150)
+                                                            (Constant 10000)
                                                         )
                                                         (Pay
-                                                            (Role "Borrower")
-                                                            (Party (Role "Lender"))
-                                                            (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                            (Constant 150)
-                                                            (When
-                                                                [Case
-                                                                    (Deposit
-                                                                        (Role "Borrower")
-                                                                        (Role "Borrower")
-                                                                        (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                                        (Constant 10000)
-                                                                    )
-                                                                    (When
-                                                                        [Case
-                                                                            (Deposit
-                                                                                (Role "Lender")
-                                                                                (Role "Lender")
-                                                                                (Token "0889a2d542897f0c7eefed47d2d809bd8d8ec78881bd4ff9464f683a" "BadgeOfHonor")
-                                                                                (Constant 1)
-                                                                            )
-                                                                            (Pay
-                                                                                (Role "Lender")
-                                                                                (Party (Role "Borrower"))
-                                                                                (Token "0889a2d542897f0c7eefed47d2d809bd8d8ec78881bd4ff9464f683a" "BadgeOfHonor")
-                                                                                (Constant 1)
-                                                                                (Pay
-                                                                                    (Role "Borrower")
-                                                                                    (Party (Role "Lender"))
-                                                                                    (Token "a00fdf4fb9ab6c8c2bd1533a2f14855edf12aed5ecbf96d4b5f5b939" "C4")
-                                                                                    (Constant 10000)
-                                                                                    Close 
-                                                                                )
-                                                                            )]
-                                                                        1720630620000 Close 
-                                                                    )]
-                                                                1720630560000 Close 
-                                                            )
+                                                            (Role "Lender")
+                                                            (Party (Role "Borrower"))
+                                                            (Token "0889a2d542897f0c7eefed47d2d809bd8d8ec78881bd4ff9464f683a" "BadgeOfHonor")
+                                                            (Constant 1)
+                                                            Close 
                                                         )]
                                                     1720630500000 Close 
-                                                )
-                                            )]
-                                        1720630440000 Close 
-                                    )
+                                                )]
+                                            1720630500000 Close 
+                                        )]
+                                    1720630440000 Close 
                                 )]
                             1720630380000 Close 
                         )
